@@ -1,0 +1,33 @@
+.followersPart {
+    text-align: center;
+}
+
+.firstLine {
+    display: grid;
+    grid-auto-flow: column;
+    justify-content: left;
+    align-items: center;
+    grid-gap: 25px;
+}
+
+.profileCardWrapper {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+    & > div {
+        margin-bottom: 15px;
+    }
+}
+
+.forthLine {
+    & button {
+        margin: 0px 10px;
+    }
+}
+
+.refs {
+    & a {
+        margin: 0px 2px;
+    }
+}

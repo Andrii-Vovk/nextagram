@@ -110,3 +110,25 @@ a:hover {
     text-decoration: underline;
   }
 }
+
+@mixin input-reset {
+    border: none;
+    outline: none;
+    padding: 0 0;
+    margin: 0 0;
+    box-sizing: border-box;
+  }
+  
+  .standart-input {
+    @include input-reset;
+  
+    padding: 0.75rem 1.25rem;
+    border: 1px solid #C9CAD1;
+    border-radius: toRem(12);
+  }
+  
+  .input-group {
+      display: flex;
+      flex-direction: column;
+      margin: 10px 0px;
+  }

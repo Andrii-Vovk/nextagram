@@ -1,0 +1,223 @@
+@import "../../style/funcs";
+@import "../../style/colors";
+
+.flexBtn {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: transparent;
+  border: none;
+}
+
+.rotator {
+  position: relative;
+
+  .bufferOverlay {
+    transition: opacity 400ms ease-in-out;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: rgb(201, 191, 191);
+    z-index: 1;
+    border-radius: 3rem;
+    opacity: 0;
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    pointer-events: none;
+
+    p {
+      color: black;
+    }
+
+  }
+  .bufferVisible {
+    opacity: 60% !important;
+  }
+
+  & img {
+    border-radius: 3rem;
+    cursor: pointer;
+  }
+}
+
+.postWrapper {
+  width: 100%;
+
+  & > * {
+    margin: 0.5rem 0;
+  }
+
+  & .postImgWrapper {
+    cursor: pointer;
+  }
+
+  & .postHiddenComments {
+    margin: 0px 0px;
+    transition: transform 300ms 300ms ease-in, opacity 300ms ease-in;
+    transform: translateY(25%);
+    opacity: 0%;
+    height: 0;
+    overflow: hidden;
+    pointer-events: none;
+
+    & .commentWrapper {
+      margin-top: 0px;
+    }
+  }
+
+  & .comeOut {
+    height: auto;
+    transform: translateY(0px);
+    opacity: 100%;
+
+    & .commentWrapper {
+      margin-top: 25px;
+    }
+  }
+}
+
+.titleBar {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  align-items: center;
+}
+
+.titleBarLeft {
+  display: grid;
+  grid-auto-flow: column;
+  grid-gap: 1rem;
+  align-items: center;
+}
+
+.shareLink {
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 1rem;
+
+  color: black;
+
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+
+  &:hover {
+    text-decoration: underline;
+  }
+
+  &::after {
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    content: "\00a0\00a0\f061";
+  }
+}
+
+.postAbout {
+  margin-right: auto;
+  text-align: left;
+}
+
+.postFooter {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+
+  & .leftFooterPart {
+    display: flex;
+    align-items: center;
+  }
+
+  & .hideLikes {
+    width: 0% !important;
+    padding: 0 0;
+    margin: 0 0;
+    opacity: 0%;
+
+    pointer-events: none !important;
+  }
+
+  & .likeWrapper {
+    transition: width 300ms ease-in, opacity 300ms ease-in;
+    display: flex;
+    align-items: baseline;
+    margin-right: 12px;
+    width: 100%;
+
+    pointer-events: auto;
+
+    & .faHeart {
+      margin-right: 12px;
+      color: #c9cad1;
+    }
+  }
+
+  & .commentCountWrapper {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+  }
+
+  & svg {
+    color: #c9cad1;
+  }
+}
+
+
+.redHeart {
+  color: $red-accent !important;
+}
+
+.heartMargin {
+  margin-right: 12px;
+}
+
+.likeCounter {
+  margin-right: 45px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.commentSvg {
+  position: relative;
+  margin-right: 12px;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 10px;
+    height: 2px;
+    z-index: 3;
+  }
+}
+
+
+.pseudolink {
+  background-color: transparent;
+  border: none;
+  margin-right: 10px;
+
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: normal;
+  font-size: toRem(12);
+
+  color: red;
+  cursor: pointer;
+
+  border: none;
+  background-color: transparent;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}

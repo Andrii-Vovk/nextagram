@@ -1,0 +1,59 @@
+@import "../style/colors";
+
+@mixin reset-button {
+    display: inline-block;
+    border: none;
+    text-decoration: none;
+}
+@mixin button-base {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    transition: all 100ms ease;
+    padding: .75em 1.5em;
+    border-radius: .80em;
+    cursor: pointer;
+}
+
+.whiteBtn {
+    @include reset-button;
+    @include button-base;
+    background-color: white;
+
+    &:hover,
+    &:focus {
+        color: white;
+        background-color: black;
+    }
+}
+
+.blueBtn {
+    @include reset-button;
+    @include button-base;
+    
+    background-color: $primary-blue;
+    color: white;
+
+    &:hover,
+    &:focus {
+        background-color: lighten($primary-blue, $amount: 10%);
+    }
+
+    &:disabled {
+        background-color: lighten($primary-blue, $amount: 30%);
+        pointer-events: none;
+    }
+}
+
+.blackBtn {
+    @include reset-button;
+    @include button-base;
+    
+    background-color: $primary-blue;
+    background-color: black;
+    color: white;
+
+    &:hover,
+    &:focus {
+        background-color: lighten(black, $amount: 25%)
+    }
+}

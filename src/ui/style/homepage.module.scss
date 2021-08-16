@@ -1,0 +1,86 @@
+@import "../../ui/style/funcs";
+@import "../../ui/style/colors";
+
+.layoutParent {
+  display: flex;
+  justify-content: space-between;
+
+  margin: 0 20%;
+}
+
+.pagination {
+  display: flex;
+  justify-content: space-between;
+
+  .pageIndicator {
+    font-family: Poppins;
+  font-style: normal;
+  font-weight: 400;
+    padding: .65em 1.5em;
+    border-radius: 1rem;
+    border: 2px solid $primary-blue;
+  }
+}
+
+.noScrollbar {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+.layoutLeft {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+
+  & > * {
+    margin: 20px 0;
+  }
+}
+
+.layoutRight {
+  position: sticky;
+  top: toRem(100);
+  align-self: flex-start;
+  z-index: 3;
+}
+
+@media (max-width: 800px) {
+  .layoutParent {
+    justify-content: center;
+    margin: 0 0;
+  }
+  .layoutLeft {
+    width: 60%;
+  }
+
+  .layoutRight {
+    display: none;
+  }
+}
+
+@media (max-width: 600px) {
+  .layoutParent {
+    justify-content: center;
+    margin: 0 0;
+  }
+  .layoutLeft {
+    width: 90%;
+
+    & > * {
+      margin: 0 0;
+    }
+  }
+}
+
+@media (max-width: 800px){
+  .buttons .hideable {
+    display: none;
+  }
+
+  .header {
+    padding: 0 1rem;
+  }
+}

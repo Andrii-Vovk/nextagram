@@ -1,0 +1,188 @@
+@import "../../../style/colors";
+
+.postPopUpWrapper {
+  position: fixed;
+  width: 65%;
+  height: 80%;
+  background-color: white;
+  border-radius: 3rem;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 5;
+
+  display: grid;
+  grid-template-areas:
+    "photo title"
+    "photo comments"
+    "photo likes"
+    "photo inputs";
+
+  grid-template-columns: 55% 45%;
+  grid-template-rows: 11% 69% 9% 11%;
+
+  & > * {
+    border-top: 0.5px solid #c9cad1;
+  }
+
+  &:first-child {
+    border-top: none;
+  }
+
+  & .postPhoto {
+    text-align: left;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    overflow: hidden;
+    border-radius: 3rem 0 0 3rem;
+
+    grid-area: photo;
+  }
+
+  & .titleGridCell {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 1rem;
+    padding-right: 1.5rem;
+}
+
+  & .titleWrapper {
+    display: flex;
+    align-items: center;
+  }
+
+  & .crossButton {
+    position: relative;
+    cursor: pointer;
+    width: 25px;
+    height: 25px;
+    $cross-color: #808080;
+    &::before {
+      content: "";
+      background-color: $cross-color;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) rotate(-45deg);
+      width: 33px;
+      height: 2px;
+      border-radius: 2px;
+    }
+
+    &::after {
+      content: "";
+      background-color: $cross-color;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) rotate(45deg);
+      width: 33px;
+      height: 2px;
+      border-radius: 2px;
+    } 
+  }
+
+  & .commentsGridCell {
+
+    & > * {
+        margin-top: 10px;
+    }
+
+    padding-left: 1rem;
+    padding-right: 1.5rem;
+
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
+    justify-content: flex-start;
+    height: 100%;
+    width: 100%;
+
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+
+  & .likesGridCell {
+    padding-left: 1rem;
+    padding-right: 1.5rem;
+
+    display: flex;
+    align-items: center;
+
+  }
+   .fas {
+    margin-right: 10px;
+  }
+  .centered {
+    display: flex;
+    align-items: baseline;
+  }
+
+  .inputsGridCell {
+    padding-left: 1rem;
+    padding-right: 1.5rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    & .commentInput {
+      font-family: Poppins;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 1rem;
+      color: black;
+      border: none;
+      outline: none;
+      padding: 0;
+    }
+
+    & .commentInput::placeholder {
+      font-family: Poppins;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 1rem;
+      color: #808080;
+    }
+
+    & a {
+      font-family: Poppins;
+      font-style: normal;
+      font-weight: 600;
+      font-size: 1rem;
+      color: #0087ff;
+    }
+  }
+}
+
+.flexBtn {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: transparent;
+  border: none;
+}
+
+.heartMargin {
+  margin-right: 12px;
+}
+
+.redHeart {
+  color: $red-accent !important;
+}
+
+.grayOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 4;
+  background-color: black;
+  opacity: 25%;
+}

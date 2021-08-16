@@ -1,0 +1,41 @@
+@import "../../style/funcs";
+
+.header {
+  width: 100%;
+  height: toRem(90);
+  background-color: white;
+  box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.05);
+
+  padding: 0 toRem(64);
+  margin-bottom: 3em;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  position: sticky;
+  top: 0;
+  z-index: 2;
+}
+
+.buttons {
+  display: flex;
+  & * {
+    margin: 0 5px;
+  }
+
+  & img {
+    padding: 0;
+  }
+
+  & .whiteBtn {
+    border: 1px solid gray;
+  }
+}
+
+.logo {
+  font-family: Poppins;
+  font-style: italic;
+  font-weight: 800;
+  font-size: 1rem;
+}

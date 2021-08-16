@@ -1,0 +1,99 @@
+.loginWrapper {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 0px 10%;
+
+  & h1 {
+    margin-bottom: 3rem;
+  }
+
+  & .mockup {
+    position: relative;
+    width: fit-content;
+    display: inline-block;
+
+    // height: 100vh;
+  }
+
+  .one {
+      position: absolute;
+      top: 50%;
+      left: 0;
+  }
+
+  .two {
+    position: absolute;
+    top: 35%;
+    right: 0;
+    z-index: -1;
+  }
+
+  .three {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+  }
+
+  & .signUpLinks {
+    display: flex;
+    justify-content: center;
+
+    & > * {
+      margin: 10px 10px;
+    }
+  }
+
+  & form {
+    & .validation {
+      height: 2rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+    }
+
+    & label {
+      display: flex;
+      flex-direction: column;
+    }
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+
+    width: 25em;
+  }
+}
+
+@media (max-width: 950px) {
+  .mockup {
+    display: none !important;
+  }
+
+  .loginWrapper {
+    & .loginForm {
+      width: 95%;
+      margin: 0 0;
+      padding: 0 0;
+    }
+
+    & form {
+      width: 100%;
+    }
+
+    & button {
+      position: absolute;
+      bottom: 3%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 90vw;
+    }
+
+    & .signUpLinks {
+      position: absolute;
+      bottom: 9%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 90vw;
+    }
+  }
+}

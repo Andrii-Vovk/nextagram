@@ -1,0 +1,44 @@
+@import "../../style/colors";
+
+.storiesGrid {
+  list-style: none;
+  position: relative;
+
+  display: grid;
+  grid-auto-flow: column;
+  grid-gap: 20px;
+  overflow: auto;
+  justify-content: left;
+
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+  }
+}
+
+// adds fading effect
+.storiesGridWrapper {
+  position: relative;
+
+  & img {
+    cursor: pointer;
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    pointer-events: none;
+    z-index: 2;
+    bottom: 0;
+    right: 0;
+    height: 100%;
+    width: 25%;
+    background-image: linear-gradient(
+      to right,
+      rgba(255, 0, 0, 0) 50%,
+      $body-color 100%
+    );
+  }
+}

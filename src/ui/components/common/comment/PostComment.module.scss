@@ -1,0 +1,52 @@
+@import "../../../style/colors";
+.redoButton {
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.commentWrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+
+  i {
+    color: $red-accent;
+  }
+
+  
+
+  & .rightCommentPart {
+    margin-left: auto;
+  }
+
+  & .leftCommentPart {
+    display: grid;
+    width: 100%;
+    grid-template-areas:
+      "avatar text text text"
+      "avatar time time .";
+    grid-template-columns: 40px 1fr 1fr 1fr;
+    grid-template-rows: auto auto;
+    column-gap: 15px;
+
+    & .commentAvatar {
+      grid-area: avatar;
+      align-self: start;
+      justify-self: center;
+    }
+
+    & .commentText {
+      grid-area: text;
+    }
+
+    & .time {
+      grid-area: time;
+    }
+  }
+}
+
+.redHeart {
+  color: $red-accent;
+}
