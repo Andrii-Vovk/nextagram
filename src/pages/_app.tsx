@@ -8,6 +8,7 @@ import Toast from "../ui/components/common/toast/toast";
 import Head from 'next/head'
 import TimeAgo from "javascript-time-ago";
 import en from "javascript-time-ago/locale/en";
+import AuthEnforcer from "../ui/components/authEnforcer/authEnforcer";
 
 function MyApp({ Component, pageProps }: AppProps) {
   useEffect(() => {
@@ -17,11 +18,12 @@ function MyApp({ Component, pageProps }: AppProps) {
   return (
     <>
     <Head>
-          <script src="https://kit.fontawesome.com/66afb0360d.js" crossorigin="anonymous"></script>
+          <script src="https://kit.fontawesome.com/66afb0360d.js" crossOrigin="anonymous"></script>
     </Head>
 
     <Provider store={store}>
       <Toast />
+      <AuthEnforcer />
       <Component {...pageProps} />
     </Provider>
     </>

@@ -1,19 +1,20 @@
 import { Formik, Form } from "formik";
+import Image from 'next/image';
 import React, { useState } from "react";
 import * as Yup from "yup";
-import styles from "../ui/style/login.module.scss";
+
 
 import one from "../../public/images/1.png";
 import two from "../../public/images/2.png";
 import three from "../../public/images/3.png";
 import mockup from "../../public/images/phone-mockup.png";
-import buttons from "../ui/style/buttons.module.scss";
 import { login, signUp } from "../core/store/authSlice/thunks";
 import { useAppDispatch, useAppSelector } from "../core/store/hooks";
-import FormInput from "../ui/components/common/input/FormInput";
 import Navbar from "../ui/components/Navbar/Navbar";
+import FormInput from "../ui/components/common/input/FormInput";
 import Spinner from "../ui/components/spinner/Spinner";
-import Image from 'next/image';
+import buttons from "../ui/style/buttons.module.scss";
+import styles from "../ui/style/login.module.scss";
 
 const LoginSchema = Yup.object().shape({
   email: Yup.string()

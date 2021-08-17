@@ -64,7 +64,7 @@ const postPopUpSlice = createSlice({
     builder
       .addCase(addComment.pending, (state, action) => {
         const newComment: CommentProps = {
-          id: state.post?.comments
+          id: state.post?.comments && state.post.comments.length > 0
             ? state.post?.comments[state.post?.comments.length - 1].id + 1
             : 0,
           time: new Date(),
@@ -75,7 +75,7 @@ const postPopUpSlice = createSlice({
           isError: false,
         };
 
-        if (state.post && !state.post?.comments) {
+        if (state.post && state.post?.comments.length < 1) {
           state.post.comments = [];
           state.post.comments.push(newComment);
         } else {

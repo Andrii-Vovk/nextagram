@@ -7,7 +7,6 @@ import Avatar from "../StoriesAvatar/StoriesAvatar";
 
 import styles from "./Navbar.module.scss";
 
-
 export interface NavbarProps {
   initialLanguage?: "en" | "ua" | "ru";
   variant: "Homepage" | "Profilepage" | "LoginPage";
@@ -23,7 +22,9 @@ const Navbar: React.FC<NavbarProps> = ({ variant }) => {
   const showLanguageDrop = variant === "Homepage" || variant === "LoginPage";
   const showHomeButton = variant === "Profilepage";
 
-  const avatarUrl = useAppSelector((state) => state.profile.profile?.avatar?.url)
+  const avatarUrl = useAppSelector(
+    (state) => state.profile.profile?.avatar?.url
+  );
 
   return (
     <header className={styles.header}>
@@ -32,7 +33,10 @@ const Navbar: React.FC<NavbarProps> = ({ variant }) => {
       <div className={styles.buttons}>
         {showHomeButton && (
           <Link href="/">
-            <button className={classNames(buttons.blackBtn, buttons.hideable)} type="submit">
+            <button
+              className={classNames(buttons.blackBtn, buttons.hideable)}
+              type="submit"
+            >
               Home
             </button>
           </Link>
@@ -45,11 +49,23 @@ const Navbar: React.FC<NavbarProps> = ({ variant }) => {
           </Link>
         )}
 
-        {showLanguageDrop && <button type="button" className={classNames(buttons.whiteBtn, 'hideable')}>en</button>}
+        {showLanguageDrop && (
+          <button
+            type="button"
+            className={classNames(buttons.whiteBtn, "hideable")}
+          >
+            en
+          </button>
+        )}
 
         {isHomePage && (
           <Link href="/profile">
-            <Avatar url={avatarUrl || "https://via.placeholder.com/40"} style={style} />
+            <button className={buttons.btnWrapper} type="button">
+              <Avatar
+                url={avatarUrl || "https://via.placeholder.com/40"}
+                style={style}
+              />
+            </button>
           </Link>
         )}
       </div>

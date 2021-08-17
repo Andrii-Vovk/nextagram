@@ -57,3 +57,12 @@
         background-color: lighten(black, $amount: 25%)
     }
 }
+
+.btnWrapper {
+    border:  none;
+    background-color: transparent;
+    text-decoration: none;
+    cursor: pointer;
+    margin: 0;
+    padding: 0;
+}

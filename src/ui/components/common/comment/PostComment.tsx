@@ -3,11 +3,11 @@ import { useEffect, useState } from "react";
 import ReactTimeAgo from "react-time-ago";
 
 import { useAppDispatch, useAppSelector } from "../../../../core/store/hooks";
+import { resendComment } from "../../../../core/store/postPopUpSlice/thunks";
 import Avatar from "../../StoriesAvatar/StoriesAvatar";
 import Spinner from "../../spinner/Spinner";
 
 import styles from "./PostComment.module.scss";
-import { resendComment } from "../../../../core/store/postPopUpSlice/thunks";
 
 export interface CommentProps {
   username?: string;

@@ -1,6 +1,7 @@
 import classNames from "classnames";
 import { useEffect, useState } from "react";
 // import { CopyToClipboard } from "react-copy-to-clipboard";
+import {CopyToClipboard} from 'react-copy-to-clipboard';
 import ReactTimeAgo from "react-time-ago";
 
 import {
@@ -40,6 +41,8 @@ export interface PostProps {
 }
 
 const Post: React.FC<PostProps> = ({ post }) => {
+  const dispatch = useAppDispatch();
+
   const [isLiked, setIsLiked] = useState(post.isliked);
   const [likes, setLikes] = useState(post.likes);
   const [isPopUpVisible, setIsPopUpVisible] = useState(false);
@@ -51,6 +54,16 @@ const Post: React.FC<PostProps> = ({ post }) => {
   const [commentAnswer, setcommentAnswer] = useState<CommentProps[]>([]);
 
   const date = new Date(post.time);
+
+  async function handleDelete() {
+    if (post.id && token) {
+      const res = await deletePostRequest(post.id, token);
+      if (res) {
+        dispatch(removePost(post.id));
+      }
+    }
+  }
+
 
   const dropDownData =
     author === post.username
@@ -90,17 +103,6 @@ const Post: React.FC<PostProps> = ({ post }) => {
       }
     }
   }
-
-  async function handleDelete() {
-    if (post.id && token) {
-      const res = await deletePostRequest(post.id, token);
-      if (res) {
-        dispatch(removePost(post.id));
-      }
-    }
-  }
-
-  const dispatch = useAppDispatch();
 
 
   const [bufferVisible, setBufferVisible] = useState(false);
@@ -203,7 +205,7 @@ const Post: React.FC<PostProps> = ({ post }) => {
             </button>
           </div>
           <div className={styles.rightFooterPart}>
-            {/* <CopyToClipboard text={`${window.location.host  }/#${  post.id}`}> */}
+            <CopyToClipboard text={`${window.location.host  }/#${  post.id}`}>
               <button
                 type="button"
                 onClick={handleShare}
@@ -211,7 +213,7 @@ const Post: React.FC<PostProps> = ({ post }) => {
               >
                 Share
               </button>
-            {/* </CopyToClipboard> */}
+            </CopyToClipboard>
           </div>
         </div>
         <div

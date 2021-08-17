@@ -3,7 +3,10 @@ import InfiniteScroll from "react-infinite-scroll-component";
 import { getPostById, getCommentById } from "../core/services/requests";
 import { setError } from "../core/store/errorSlice/errorSlice";
 import { useAppDispatch, useAppSelector } from "../core/store/hooks";
-import { changePopUp, changeStatus } from "../core/store/postPopUpSlice/postPopUpSlice";
+import {
+  changePopUp,
+  changeStatus,
+} from "../core/store/postPopUpSlice/postPopUpSlice";
 import { setStateToPending } from "../core/store/postsSlice/postsSlice";
 import fetchPosts from "../core/store/postsSlice/thunks";
 import { fetchProfiles } from "../core/store/usersSlice/usersSlice";
@@ -19,8 +22,6 @@ import Spinner from "../ui/components/spinner/Spinner";
 import StoriesLine from "../ui/components/StoriesLine/StoriesLine";
 import useFetchProfile from "../ui/hooks/useFetchProfile";
 import styles from "../ui/style/homepage.module.scss";
-
-
 
 const HomePage: React.FC = () => {
   const dispatch = useAppDispatch();
@@ -58,10 +59,10 @@ const HomePage: React.FC = () => {
     getAllProfilesUseEffect();
   }, [dispatch, allProfiles.status, token]);
 
-/*   const location = useLocation();
-
   useEffect(() => {
     async function getPopup() {
+      const location = window.location;
+
       if (location.hash) {
         try {
           const id = parseInt(location.hash.slice(1), 10);
@@ -76,15 +77,15 @@ const HomePage: React.FC = () => {
             dispatch(changePopUp(convertedRes));
             dispatch(changeStatus());
           }
-          if(!res) throw new Error("This post doesnt exist");
+          if (!res) throw new Error("This post doesnt exist");
         } catch (error) {
-          dispatch(setError(error.message))
+          dispatch(setError(error.message));
         }
       }
     }
 
     getPopup();
-  }, [dispatch, location.hash]); */
+  }, [dispatch]);
 
   return (
     <>
