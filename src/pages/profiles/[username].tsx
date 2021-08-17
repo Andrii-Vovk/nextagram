@@ -26,7 +26,7 @@ const UserProfilePage: React.FC = () => {
 
   useEffect(() => {
     async function getData() {
-      if (token) {
+      if (token && username) {
         const apiProfile = await getUserByUsername(stringUsername, token);
         if(!apiProfile) setError("Error");
         setProfile(apiProfile);
@@ -42,7 +42,7 @@ const UserProfilePage: React.FC = () => {
     }
 
     getData();
-  }, [token, stringUsername]);
+  }, [token, stringUsername, username]);
 
   return (
     <>
