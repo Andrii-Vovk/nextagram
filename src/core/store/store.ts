@@ -3,11 +3,11 @@ import { persistStore, persistReducer } from "redux-persist";
 import storage from "redux-persist/lib/storage";
 
 import authReducer from "./authSlice/authSlice";
+import errorReducer from "./errorSlice/errorSlice";
 import postPopUpReducer from "./postPopUpSlice/postPopUpSlice";
 import postsReducer from "./postsSlice/postsSlice";
 import profileReducer from "./profileSlice/profileSlice";
 import usersReducer from "./usersSlice/usersSlice";
-import errorReducer from "./errorSlice/errorSlice";
 
 const rootPersistConfig = {
   key: "root",

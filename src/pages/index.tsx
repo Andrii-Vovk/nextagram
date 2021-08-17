@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import InfiniteScroll from "react-infinite-scroll-component";
+
 import { getPostById, getCommentById } from "../core/services/requests";
 import { setError } from "../core/store/errorSlice/errorSlice";
 import { useAppDispatch, useAppSelector } from "../core/store/hooks";
@@ -14,12 +15,12 @@ import ApiCommentsToPropsComments from "../core/utils/ApiCommentsToPropsComments
 import ApiPostToPropsPost from "../core/utils/ApiPostToPropsPost";
 import { PlaceholderProfileProps } from "../core/utils/placeholders/placeholders";
 import { CommentAnswer } from "../typings/CommentAnswer";
-import PostPopUp from "../ui/components/common/PostPopUp/PostPopUp";
 import Navbar from "../ui/components/Navbar/Navbar";
 import Post, { PostPropsType } from "../ui/components/Post/Post";
 import ProfileCard from "../ui/components/ProfileCard/ProfileCard";
-import Spinner from "../ui/components/spinner/Spinner";
 import StoriesLine from "../ui/components/StoriesLine/StoriesLine";
+import PostPopUp from "../ui/components/common/PostPopUp/PostPopUp";
+import Spinner from "../ui/components/spinner/Spinner";
 import useFetchProfile from "../ui/hooks/useFetchProfile";
 import styles from "../ui/style/homepage.module.scss";
 
@@ -61,7 +62,7 @@ const HomePage: React.FC = () => {
 
   useEffect(() => {
     async function getPopup() {
-      const location = window.location;
+      const {location} = window;
 
       if (location.hash) {
         try {
