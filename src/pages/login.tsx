@@ -1,8 +1,7 @@
 import { Formik, Form } from "formik";
-import Image from 'next/image';
+import Image from "next/image";
 import React, { useState } from "react";
 import * as Yup from "yup";
-
 
 import one from "../../public/images/1.png";
 import two from "../../public/images/2.png";
@@ -76,9 +75,15 @@ const LoginPage: React.FC = () => {
       <div className={styles.loginWrapper}>
         <div className={styles.mockup}>
           <Image src={mockup} alt="phone withs photos" />
-          <Image className={styles.one} src={one} alt="phone withs photos" />
-          <Image className={styles.two} src={two} alt="phone withs photos" />
-          <Image className={styles.three} src={three} alt="phone withs photos" />
+          <div className={styles.one}>
+            <Image src={one} alt="phone withs photos" />
+          </div>
+          <div className={styles.two}>
+            <Image src={two} alt="phone withs photos" />
+          </div>
+          <div className={styles.three}>
+            <Image src={three} alt="phone withs photos" />
+          </div>
         </div>
         <div className={styles.loginForm}>
           {!isSignUp && (
@@ -89,7 +94,9 @@ const LoginPage: React.FC = () => {
                 validateOnChange
                 validateOnBlur
                 onSubmit={(values) => {
-                  dispatch(login({login: values.email, password: values.password}))
+                  dispatch(
+                    login({ login: values.email, password: values.password })
+                  );
                 }}
               >
                 {() => (
@@ -113,7 +120,7 @@ const LoginPage: React.FC = () => {
                       Submit
                     </button>
                     {authStatus === "pending" && <Spinner />}
-                    {authStatus === "error" && <Spinner error/>}
+                    {authStatus === "error" && <Spinner error />}
                   </Form>
                 )}
               </Formik>
@@ -139,7 +146,13 @@ const LoginPage: React.FC = () => {
                 validateOnChange
                 validateOnBlur
                 onSubmit={(values) => {
-                  dispatch(signUp({login: values.email, username: values.username, password: values.password}))
+                  dispatch(
+                    signUp({
+                      login: values.email,
+                      username: values.username,
+                      password: values.password,
+                    })
+                  );
                 }}
               >
                 {() => (
@@ -169,7 +182,7 @@ const LoginPage: React.FC = () => {
                       Submit
                     </button>
                     {authStatus === "pending" && <Spinner />}
-                    {authStatus === "error" && <Spinner error/>}
+                    {authStatus === "error" && <Spinner error />}
                   </Form>
                 )}
               </Formik>

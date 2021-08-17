@@ -35,6 +35,7 @@ const authSlice = createSlice({
     },
     destroyToken(state) {
       state.authToken = null;
+      state.status = null;
     },
     clearLoginError(state) {
       state.error = null;

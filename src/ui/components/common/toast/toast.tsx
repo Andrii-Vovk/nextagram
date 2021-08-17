@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { toast, ToastContainer } from "react-toastify";
+
 import { clearLoginError } from "../../../../core/store/authSlice/authSlice";
 import { clearError } from "../../../../core/store/errorSlice/errorSlice";
 import { useAppSelector, useAppDispatch } from "../../../../core/store/hooks";
@@ -8,7 +9,7 @@ import { clearPopUpError } from "../../../../core/store/postPopUpSlice/postPopUp
 const Toast: React.FC = () => {
   const error = useAppSelector((state) => state.error.error);
   const popUpError = useAppSelector((state) => state.popUp.error);
-  const loginError = useAppSelector((state) => state.popUp.error);
+  const loginError = useAppSelector((state) => state.auth.error);
   const dispatch = useAppDispatch();
 
   useEffect(() => {
